@@ -1,6 +1,7 @@
 cd /tmp/
-git clone https://github.com/opencv/opencv.git
-cd ~/opencv
+wget https://github.com/opencv/opencv/archive/4.5.0.tar.gz
+tar -xf 4.5.0.tar.gz
+cd ./opencv-4.5.0
 mkdir build
 cd build
 
