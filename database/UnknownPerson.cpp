@@ -1,26 +1,27 @@
 #include "UnknownPerson.h"
+#include <opencv2/core.hpp>
 #include <vector>
 #include <iostream>
 #include <string>
 using namespace std;
 
 // Constructor that creates a database object
-UnknownPerson::UnknownPerson(vector<Mat> imgs) { 
-	  images = imgs;
+UnknownPerson::UnknownPerson(vector<cv::Mat> imgs) {
+	images = imgs;
 }
 
 // Destructor
-UnknownPerson::-UnknownPerson(){
+UnknownPerson::~UnknownPerson() {
 }
 
 // Set images
-void UnknownPerson::setImage(vector<Mat> imgs){
+void UnknownPerson::setImage(vector<cv::Mat> imgs) {
 	images = imgs;
 }
 
 // Getter Methods
 // Get image
-vector<Mat> UnknownPerson::getImage(){
+vector<cv::Mat> UnknownPerson::getImage() {
 	return images;
 }
 

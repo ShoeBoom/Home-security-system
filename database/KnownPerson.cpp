@@ -1,19 +1,19 @@
+#include <opencv2/core.hpp>
 #include "KnownPerson.h"
 #include <vector>
-#include <iostream>
 #include <string>
 using namespace std;
 
 // Constructor that creates a database object
-KnownPerson::KnownPerson(string fName, string lName, string pNum, vector<Mat> imgs) { 
-      firstName = fName;
-      lastName = lName;
-	  phoneNumber = pNum;
-	  images = imgs;
+KnownPerson::KnownPerson(string fName, string lName, string pNum, vector<cv::Mat> imgs) {
+	firstName = fName;
+	lastName = lName;
+	phoneNumber = pNum;
+	images = imgs;
 }
 
 // Destructor
-KnownPerson::-KnownPerson(){
+KnownPerson::~KnownPerson() {
 }
 
 // Set first name
@@ -32,7 +32,7 @@ void KnownPerson::setPhoneNumber(string pNum){
 }
 
 // Set images
-void KnownPerson::setImage(vector<Mat> imgs){
+void KnownPerson::setImage(vector<cv::Mat> imgs) {
 	images = imgs;
 }
 
@@ -43,7 +43,7 @@ string KnownPerson::getFirstName(){
 
 // Get last name
 string KnownPerson::getLastName(){
-		return lastName;
+	return lastName;
 }
 
 // Get phone number
@@ -52,7 +52,7 @@ string KnownPerson::getPhoneNumber(){
 }
 
 // Get image
-vector<Mat> KnownPerson::getImage(){
+vector<cv::Mat> KnownPerson::getImage() {
 	return images;
 }
 

@@ -11,16 +11,16 @@ Database::Database() {
 }
 
 // Destructor
-Database::-Database(){
+Database::~Database() {
 }
 
 // Add known person
-void addKnownPerson(KnownPerson kPerson) {
+void Database::addKnownPerson(KnownPerson kPerson) {
 	known.push_back(kPerson);
 }
 
 // Add unknown person
-void addUnknownPerson(UnknownPerson ukPerson) {
+void Database::addUnknownPerson(UnknownPerson ukPerson) {
 	unknown.push_back(ukPerson);
 }
 
