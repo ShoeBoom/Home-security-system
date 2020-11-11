@@ -1,3 +1,4 @@
+// taken from https://github.com/TwilioDevEd/twilio_cpp_demo/blob/b27466ab64ffd9e8c844d3082f111b2b1c391980/src/twilio.cc
 #include <sstream>
 #include <curl/curl.h>
 
@@ -64,8 +65,8 @@ bool Twilio::send_message(
 
 	if (converted_message_body.size() > 1600) {
 		response_stream << "Message body must have 1600 or fewer"
-		                << " characters. Cannot send message with "
-		                << converted_message_body.size() << " characters.";
+			<< " characters. Cannot send message with "
+			<< converted_message_body.size() << " characters.";
 		response = response_stream.str();
 		return false;
 	}
@@ -84,13 +85,13 @@ bool Twilio::send_message(
 	std::stringstream url;
 	std::string url_string;
 	url << "https://api.twilio.com/2010-04-01/Accounts/" << account_sid
-	    << "/Messages";
+		<< "/Messages";
 	url_string = url.str();
 
 	std::stringstream parameters;
 	std::string parameter_string;
 	parameters << "To=" << to_number << "&From=" << from_number
-	           << "&Body=" << message_body_escaped;
+		<< "&Body=" << message_body_escaped;
 	if (!picture_url.empty()) {
 		parameters << "&MediaUrl=" << picture_url;
 	}

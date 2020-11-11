@@ -1,6 +1,4 @@
-//
-// Created by shubh on 2020-11-10.
-//
+// taken from https://github.com/TwilioDevEd/twilio_cpp_demo/blob/b27466ab64ffd9e8c844d3082f111b2b1c391980/include/twilio.hh
 
 #ifndef CS3307_TWILIO_TWILIO_H_
 #define CS3307_TWILIO_TWILIO_H_
