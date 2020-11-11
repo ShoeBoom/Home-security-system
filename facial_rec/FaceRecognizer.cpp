@@ -8,13 +8,12 @@
 #include <vector>
 using namespace std;
 
-FaceRecognizer::FaceRecognizer(vector<KnownPerson> known) {
+FaceRecognizer::FaceRecognizer(const vector<KnownPerson> &known) {
 	// initialize database
 	for (const KnownPerson &person: known) {
 		peopleDatabase.addKnownPerson(person);
 	}
-
-	model = cv::face::LBPHFaceRecognizer::create();
+	// format imgs and labels
 	vector<cv::Mat> imgs;
 	vector<int> labels;
 	for (int i = 0; i < peopleDatabase.knownSize(); ++i) {
@@ -23,11 +22,22 @@ FaceRecognizer::FaceRecognizer(vector<KnownPerson> known) {
 		imgs.reserve(imgs.size() + personImg.size());
 		imgs.insert(imgs.end(), personImg.begin(), personImg.end());
 
-//		labels.insert(labels.end(), );
+		labels.insert(labels.end(), personImg.size(), i);
 	}
-
-//	model->train(, labels);
+	model = cv::face::LBPHFaceRecognizer::create();
+	model->train(imgs, labels);
 }
-void FaceRecognizer::addPerson(KnownPerson known) {
+void FaceRecognizer::addPerson(KnownPerson person) {
+	int i = peopleDatabase.addKnownPerson(person);
+	auto personImg = person.getImage();
 
+	vector<int> labels(personImg.size(), i);
+
+	model->update(personImg, labels);
 }
+KnownPerson FaceRecognizer::predict(const cv::Mat &image) {
+	int index = model->predict(image);
+
+	return peopleDatabase[index];
+}
+FaceRecognizer::~FaceRecognizer() = default;

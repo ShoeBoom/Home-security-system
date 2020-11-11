@@ -13,9 +13,10 @@ class FaceRecognizer {
   cv::Ptr<cv::face::LBPHFaceRecognizer> model;
 
  public:
-  FaceRecognizer(std::vector<KnownPerson> known);
+  FaceRecognizer(const std::vector<KnownPerson> &known);
   ~FaceRecognizer();
-  void addPerson(KnownPerson known);
+  void addPerson(KnownPerson person);
+  KnownPerson predict(const cv::Mat &image);
 };
 
 #endif //CS3307_FACIAL_REC_FACERECOGNIZER_H_
