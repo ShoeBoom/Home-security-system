@@ -16,10 +16,11 @@ class Database {
   ~Database();
 
   // Add Person Methods
-  void addKnownPerson(KnownPerson kPerson);
+  int addKnownPerson(KnownPerson kPerson);
   void addUnknownPerson(UnknownPerson ukPerson);
+  KnownPerson operator[](int b);
+  int knownSize();
 
-    
 };
 
 #endif

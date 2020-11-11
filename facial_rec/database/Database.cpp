@@ -15,12 +15,21 @@ Database::~Database() {
 }
 
 // Add known person
-void Database::addKnownPerson(KnownPerson kPerson) {
+int Database::addKnownPerson(KnownPerson kPerson) {
 	known.push_back(kPerson);
+	return knownSize() - 1;
 }
 
 // Add unknown person
 void Database::addUnknownPerson(UnknownPerson ukPerson) {
 	unknown.push_back(ukPerson);
+}
+
+KnownPerson Database::operator[](int b) {
+	return known[b];
+}
+
+int Database::knownSize() {
+	return known.size();
 }
 

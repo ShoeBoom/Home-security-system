@@ -5,29 +5,24 @@
 using namespace std;
 
 // Constructor that creates a database object
-KnownPerson::KnownPerson(string fName, string lName, string pNum, vector<cv::Mat> imgs) {
-	firstName = fName;
-	lastName = lName;
-	phoneNumber = pNum;
-	images = imgs;
-}
+
 
 // Destructor
 KnownPerson::~KnownPerson() {
 }
 
 // Set first name
-void KnownPerson::setFirstName(string fName){
+void KnownPerson::setFirstName(string fName) {
 	firstName = fName;
 }
 
 // Set last name
-void KnownPerson::setLastName(string lName){
+void KnownPerson::setLastName(string lName) {
 	lastName = lName;
 }
 
 // Set phone number
-void KnownPerson::setPhoneNumber(string pNum){
+void KnownPerson::setPhoneNumber(string pNum) {
 	phoneNumber = pNum;
 }
 
@@ -37,17 +32,17 @@ void KnownPerson::setImage(vector<cv::Mat> imgs) {
 }
 
 // Get first name
-string KnownPerson::getFirstName(){
+string KnownPerson::getFirstName() {
 	return firstName;
 }
 
 // Get last name
-string KnownPerson::getLastName(){
+string KnownPerson::getLastName() {
 	return lastName;
 }
 
 // Get phone number
-string KnownPerson::getPhoneNumber(){
+string KnownPerson::getPhoneNumber() {
 	return phoneNumber;
 }
 
@@ -55,5 +50,11 @@ string KnownPerson::getPhoneNumber(){
 vector<cv::Mat> KnownPerson::getImage() {
 	return images;
 }
+KnownPerson::KnownPerson(int id,
+                         const string &first_name,
+                         const string &last_name,
+                         const string &phone_number,
+                         const vector<cv::Mat> &images)
+	: id(id), firstName(first_name), lastName(last_name), phoneNumber(phone_number), images(images) {}
 
 

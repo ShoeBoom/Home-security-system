@@ -6,13 +6,18 @@
 
 class KnownPerson {
  public:
+  int id;
   std::string firstName;
   std::string lastName;
   std::string phoneNumber;
   std::vector<cv::Mat> images;
 
   // Constructor
-  KnownPerson(std::string fName, std::string lName, std::string pNum, std::vector<cv::Mat> imgs);
+  KnownPerson(int id,
+              const std::string &first_name,
+              const std::string &last_name,
+              const std::string &phone_number,
+              const std::vector<cv::Mat> &images);
   // Destructor
   ~KnownPerson();
 
