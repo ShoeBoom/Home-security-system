@@ -1,7 +1,3 @@
-//
-// Created by shubh on 2020-11-09.
-//
-
 #include "FaceRecognizer.h"
 #include <opencv2/core.hpp>
 #include <opencv2/face.hpp>
