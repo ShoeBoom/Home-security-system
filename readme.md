@@ -15,13 +15,13 @@ sudo apt-get install libcurl4-openssl-dev
 ### OpenCV
 if OpenCV is not installed run the following in the project directory.
 ```shell script
-./install_opencv.sh 
+bash ./install_opencv.sh 
 ```
 
 ## Build & run
 ```shell script
 # Build
-mkdr build
+mkdir build
 cd build
 cmake ..
 make
