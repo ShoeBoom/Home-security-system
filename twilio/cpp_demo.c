@@ -19,14 +19,13 @@
 
 int main(int argc, char * argv[])
 {
-        int cmd;
-        std::string account_sid;
-        std::string auth_token;
-        std::string message;
-        std::string from_number;
-        std::string to_number;
-        std::string picture_url;
-        bool verbose = false;
+         string account_sid = "account_sid";
+           string auth_token = "auth_token";
+           string message_body = "Hmm...Looks like someone I don't recognize is at your door";
+           string from_number = "from_number";
+           string to_number = "to_number";
+           string picture_url = "";
+           bool verbose = false;
 
         opterr = 0;
 
