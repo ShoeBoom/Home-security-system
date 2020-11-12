@@ -20,6 +20,8 @@ class Database {
   void addUnknownPerson(UnknownPerson ukPerson);
   KnownPerson operator[](int b);
   int knownSize();
+    
+    
 
 };
 
