@@ -12,6 +12,8 @@
 using namespace cv;
 using namespace std;
 int main(int argc, const char *argv[]) {
+	// still inaccurate due to sample size
+
 	vector<KnownPerson> known;
 	vector<cv::Mat> images;
 	string file = string(argv[1]);
