@@ -16,7 +16,7 @@ notification::notification() {
 
 }
 
-std::string response;
+string response;
 auto Twilio::twilio = std::make_shared<twilio::Twilio>(
     account_sid,
     auth_token
