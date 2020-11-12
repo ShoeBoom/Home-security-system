@@ -19,6 +19,7 @@ bash ./install_opencv.sh
 ```
 
 ## Build & run
+test for facial recognition
 ```shell script
 # Build
 mkdir build
