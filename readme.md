@@ -12,6 +12,11 @@ sudo apt update && sudo apt upgrade
 sudo apt install curl
 sudo apt-get install libcurl4-openssl-dev
 ```
+### GTK
+```shell script
+sudo apt-get install libgtk2.0-dev libgtk-3-dev pkg-config
+```
+
 ### OpenCV
 if OpenCV is not installed run the following in the project directory.
 ```shell script
