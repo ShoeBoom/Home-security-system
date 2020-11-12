@@ -7,6 +7,11 @@
 #include <opencv2/face.hpp>
 #include <vector>
 
+struct Result {
+  KnownPerson person;
+  double confidence;
+};
+
 class FaceRecognizer {
  private:
   Database peopleDatabase;
@@ -16,7 +21,7 @@ class FaceRecognizer {
   FaceRecognizer(const std::vector<KnownPerson> &known);
   ~FaceRecognizer();
   void addPerson(KnownPerson person);
-  KnownPerson predict(const cv::Mat &image);
+  Result predict(const cv::Mat &image);
 };
 
 #endif //CS3307_FACIAL_REC_FACERECOGNIZER_H_

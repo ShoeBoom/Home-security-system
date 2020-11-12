@@ -50,11 +50,11 @@ string KnownPerson::getPhoneNumber() {
 vector<cv::Mat> KnownPerson::getImage() {
 	return images;
 }
-KnownPerson::KnownPerson(int id,
-                         const string &first_name,
+
+KnownPerson::KnownPerson(const string &first_name,
                          const string &last_name,
                          const string &phone_number,
                          const vector<cv::Mat> &images)
-	: id(id), firstName(first_name), lastName(last_name), phoneNumber(phone_number), images(images) {}
+	: firstName(first_name), lastName(last_name), phoneNumber(phone_number), images(images) {}
 
 

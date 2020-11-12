@@ -31,9 +31,11 @@ void FaceRecognizer::addPerson(KnownPerson person) {
 
 	model->update(personImg, labels);
 }
-KnownPerson FaceRecognizer::predict(const cv::Mat &image) {
-	int index = model->predict(image);
+Result FaceRecognizer::predict(const cv::Mat &image) {
+	int index = 0;
+	double confidence = 0.0;
+	model->predict(image, index, confidence);
 
-	return peopleDatabase[index];
+	return {.person = peopleDatabase[index], .confidence = confidence};
 }
 FaceRecognizer::~FaceRecognizer() = default;
