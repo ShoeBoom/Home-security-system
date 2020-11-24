@@ -19,7 +19,7 @@ class Database {
   int addKnownPerson(KnownPerson kPerson);
   void addUnknownPerson(UnknownPerson ukPerson);
   KnownPerson operator[](int b);
-  int knownSize();
+  int knownSize() const;
     
     
 
