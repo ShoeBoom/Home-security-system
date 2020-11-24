@@ -16,7 +16,9 @@ add_executable(cs3307 main.cpp
         facial_rec/database/KnownPerson.cpp facial_rec/database/KnownPerson.h
         facial_rec/database/UnknownPerson.cpp facial_rec/database/UnknownPerson.h
         facial_rec/FaceRecognizer.cpp facial_rec/FaceRecognizer.h
-        twilio/twilio.cpp twilio/twilio.h twilio/type_conversion.h facial_rec/camera/Camera.cpp facial_rec/camera/Camera.h)
+        twilio/twilio.cpp twilio/twilio.h twilio/type_conversion.h
+        facial_rec/camera/Camera.cpp facial_rec/camera/Camera.h
+        facial_rec/face_dec/FaceDetection.cpp facial_rec/face_dec/FaceDetection.h)
 target_link_libraries(cs3307 ${OpenCV_LIBS})
 include_directories(${CURL_INCLUDE_DIR})
 target_link_libraries(cs3307 ${CURL_LIBRARIES})

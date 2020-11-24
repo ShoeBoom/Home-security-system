@@ -6,6 +6,7 @@ using namespace std;
 
 FaceRecognizer::FaceRecognizer(const vector<KnownPerson> &known) {
 	// initialize database
+	peopleDatabase = Database();
 	for (const KnownPerson &person: known) {
 		peopleDatabase.addKnownPerson(person);
 	}

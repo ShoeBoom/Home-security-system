@@ -29,7 +29,7 @@ KnownPerson Database::operator[](int b) {
 	return known[b];
 }
 
-int Database::knownSize() const {
+int Database::knownSize() {
 	return known.size();
 }
 
