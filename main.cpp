@@ -8,64 +8,53 @@
 #include <opencv2/imgproc/imgproc.hpp>
 
 #include "facial_rec/FaceRecognizer.h"
+#include "facial_rec/camera/Camera.h"
 
 using namespace cv;
 using namespace std;
 int main(int argc, const char *argv[]) {
 	// still inaccurate due to sample size
+	Camera camera = Camera();
 
 	vector<KnownPerson> known;
-	vector<cv::Mat> images;
-	string file = string(argv[1]);
-	Mat image = imread(file, 0);
 
-	images.push_back(image);
-	KnownPerson owner = KnownPerson("firstname", "lastname", "1234", images);
-	known.push_back(owner);
+	char input = 'Y';
+	int i = 0;
+	while (input != 'Q') {
+		cout << "adding images for person" << i << endl;
+		vector<cv::Mat> images;
+		char input2;
+		cin.get(input2);
+		while (input2 != 'S') {
+			Mat frame = camera.captureGrayscale();
+			images.push_back(frame);
+			cout << "added image for person" << i << ". enter 'S' to Stop" << endl;
+			cin.get(input2);
+		}
 
-	string file2 = string(argv[2]);
-	Mat image2 = imread(file2, 0);
-	vector<cv::Mat> images2;
-	images2.push_back(image2);
-	KnownPerson owner2 = KnownPerson("person2", "lastname", "1234", images2);
-	known.push_back(owner2);
+		KnownPerson person = KnownPerson("person" + to_string(i), "lastname", "1234", images);
+		known.push_back(person);
+		cout << "added person" << i << " to database. enter 'Q' to Stop" << endl;
+		cin.ignore();
+		cin.get(input);
+		i++;
+	}
 
 	FaceRecognizer recognizer = FaceRecognizer(known);
 
-	Mat frame;
-	//--- INITIALIZE VIDEOCAPTURE
-	VideoCapture cap;
-	// open the default camera using default API
-	// cap.open(0);
-	// OR advance usage: select any API backend
-	int deviceID = 0;             // 0 = open default camera
-	int apiID = cv::CAP_ANY;      // 0 = autodetect default API
-	// open selected camera using selected API
-	cap.open(deviceID, apiID);
-	// check if we succeeded
-	if (!cap.isOpened()) {
-		cerr << "ERROR! Unable to open camera\n";
-		return -1;
-	}
 	//--- GRAB AND WRITE LOOP
 	cout << "Start grabbing" << endl
 	     << "Press any key to terminate" << endl;
 	for (;;) {
-		// wait for a new frame from camera and store it into 'frame'
-		cap.read(frame);
-		// check if we succeeded
-		if (frame.empty()) {
-			cerr << "ERROR! blank frame grabbed\n";
-			break;
-		}
 
-		Mat greyMat2;
-		cv::cvtColor(frame, greyMat2, cv::COLOR_BGR2GRAY);
-		Result result = recognizer.predict(greyMat2);
+		Mat frame = camera.captureGrayscale();
+
+		Result result = recognizer.predict(frame);
 		cout << result.person.firstName << " " << result.confidence << endl;
 
 		// show live and wait for a key with timeout long enough to show images
-		imshow("Live", greyMat2);
+		imshow("Live", frame);
+
 		if (waitKey(5) >= 0)
 			break;
 	}
