@@ -7,11 +7,17 @@
 
 class Camera {
  public:
-  Camera();
+  void operator=(const Camera &) = delete;
+  static Camera *getInstance();
   cv::Mat capture();
   cv::Mat captureGrayscale();
+  cv::Mat captureRGB();
  private:
+  Camera();
+  static Camera *_instance;
+  static std::mutex mutex_;
   cv::VideoCapture cap;
+
 };
 
 #endif //CS3307_FACIAL_REC_CAMERA_CAMERA_H_

@@ -14,7 +14,7 @@ using namespace cv;
 using namespace std;
 int main(int argc, const char *argv[]) {
 	// still inaccurate due to sample size
-	Camera camera = Camera();
+	Camera camera = *Camera::getInstance();
 
 	vector<KnownPerson> known;
 

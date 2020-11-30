@@ -7,6 +7,10 @@
 using namespace cv;
 using namespace std;
 #include "Camera.h"
+
+Camera *Camera::_instance{nullptr};
+std::mutex Camera::mutex_;
+
 Camera::Camera() {
 	//--- INITIALIZE VIDEOCAPTURE
 	// open the default camera using default API
@@ -19,6 +23,15 @@ Camera::Camera() {
 		cerr << "ERROR! Unable to open camera\n";
 	}
 }
+
+Camera *Camera::getInstance() {
+	std::lock_guard<std::mutex> lock(mutex_);
+	if (_instance == nullptr) {
+		_instance = new Camera();
+	}
+	return _instance;
+}
+
 Mat Camera::capture() {
 	Mat frame;
 	cap.read(frame);
@@ -28,6 +41,16 @@ Mat Camera::capture() {
 	}
 	return frame;
 }
+
+cv::Mat Camera::captureRGB() {
+	Mat frame = this->capture();
+	Mat rgb;
+	if (!frame.empty()) {
+		cv::cvtColor(frame, rgb, cv::COLOR_BGR2RGB);
+	}
+	return rgb;
+}
+
 cv::Mat Camera::captureGrayscale() {
 	Mat frame = this->capture();
 	Mat greyMat2;
