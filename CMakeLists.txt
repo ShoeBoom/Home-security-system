@@ -8,6 +8,7 @@ set(CURL_INCLUDE_DIR)
 find_package(CURL REQUIRED)
 
 find_package(OpenCV REQUIRED)
+find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
 include_directories(${OpenCV_INCLUDE_DIRS})
 
@@ -22,3 +23,5 @@ add_executable(cs3307 main.cpp
 target_link_libraries(cs3307 ${OpenCV_LIBS})
 include_directories(${CURL_INCLUDE_DIR})
 target_link_libraries(cs3307 ${CURL_LIBRARIES})
+
+target_link_libraries(cs3307 Qt5::Widgets)
