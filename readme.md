@@ -17,6 +17,11 @@ sudo apt-get install libcurl4-openssl-dev
 sudo apt-get install libgtk2.0-dev libgtk-3-dev pkg-config
 ```
 
+### QT
+```shell script
+sudo apt-get install qt5-default
+```
+
 ### OpenCV
 if OpenCV is not installed run the following in the project directory.
 ```shell script
