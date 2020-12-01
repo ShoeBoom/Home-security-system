@@ -14,7 +14,7 @@ struct Result {
 
 class FaceRecognizer {
  private:
-  cv::Ptr<cv::face::LBPHFaceRecognizer> &getModel() {
+  static cv::Ptr<cv::face::LBPHFaceRecognizer> &getModel() {
 	  static cv::Ptr<cv::face::LBPHFaceRecognizer> model = cv::face::LBPHFaceRecognizer::create();
 	  return model;
   }
