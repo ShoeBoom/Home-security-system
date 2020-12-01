@@ -7,12 +7,10 @@
 using namespace std;
 
 // Constructor that creates a database object
-Database::Database() { 
-}
+Database::Database() = default;
 
 // Destructor
-Database::~Database() {
-}
+Database::~Database() = default;
 
 // Add known person
 int Database::addKnownPerson(KnownPerson kPerson) {

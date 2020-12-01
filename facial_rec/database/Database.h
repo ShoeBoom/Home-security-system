@@ -7,11 +7,11 @@
 
 class Database {
  public:
-  std::vector<KnownPerson> known;
-  std::vector<UnknownPerson> unknown;
-
-  // Constructor
-  Database();
+  void operator=(const Database &) = delete;
+  static Database &getInstance() {
+	  static Database _instance;
+	  return _instance;
+  }
   // Destructor
   ~Database();
 
@@ -20,8 +20,10 @@ class Database {
   void addUnknownPerson(UnknownPerson ukPerson);
   KnownPerson operator[](int b);
   int knownSize();
-    
-    
+ private:
+  Database();
+  std::vector<KnownPerson> known;
+  std::vector<UnknownPerson> unknown;
 
 };
 
