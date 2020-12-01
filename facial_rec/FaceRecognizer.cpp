@@ -1,12 +1,13 @@
 #include "FaceRecognizer.h"
 #include <opencv2/core.hpp>
 #include <opencv2/face.hpp>
+#include "./camera/Camera.h"
 #include <vector>
 using namespace std;
 
 FaceRecognizer::FaceRecognizer(const vector<KnownPerson> &known) {
 	// initialize database
-	peopleDatabase = Database();
+	Database peopleDatabase = Database::getInstance();
 	for (const KnownPerson &person: known) {
 		peopleDatabase.addKnownPerson(person);
 	}
@@ -21,22 +22,33 @@ FaceRecognizer::FaceRecognizer(const vector<KnownPerson> &known) {
 
 		labels.insert(labels.end(), personImg.size(), i);
 	}
-	model = cv::face::LBPHFaceRecognizer::create();
-	model->train(imgs, labels);
+	getModel()->train(imgs, labels);
 }
+FaceRecognizer::FaceRecognizer() = default;
 void FaceRecognizer::addPerson(KnownPerson person) {
+	Database peopleDatabase = Database::getInstance();
 	int i = peopleDatabase.addKnownPerson(person);
 	auto personImg = person.getImage();
 
 	vector<int> labels(personImg.size(), i);
 
-	model->update(personImg, labels);
+	getModel()->update(personImg, labels);
 }
+
+Result FaceRecognizer::predictCamera() {
+	Camera cam = Camera::getInstance();
+	return this->predict(cam.captureGrayscale());
+}
+
 Result FaceRecognizer::predict(const cv::Mat &image) {
+	Database peopleDatabase = Database::getInstance();
 	int index = 0;
 	double confidence = 0.0;
-	model->predict(image, index, confidence);
+	getModel()->predict(image, index, confidence);
 
 	return {.person = peopleDatabase[index], .confidence = confidence};
+}
+bool FaceRecognizer::isEmpty() {
+	return getModel().empty();
 }
 FaceRecognizer::~FaceRecognizer() = default;

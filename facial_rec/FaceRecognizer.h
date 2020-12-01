@@ -14,14 +14,19 @@ struct Result {
 
 class FaceRecognizer {
  private:
-  Database peopleDatabase;
-  cv::Ptr<cv::face::LBPHFaceRecognizer> model;
+  cv::Ptr<cv::face::LBPHFaceRecognizer> &getModel() {
+	  static cv::Ptr<cv::face::LBPHFaceRecognizer> model = cv::face::LBPHFaceRecognizer::create();
+	  return model;
+  }
 
  public:
   FaceRecognizer(const std::vector<KnownPerson> &known);
+  FaceRecognizer();
   ~FaceRecognizer();
   void addPerson(KnownPerson person);
   Result predict(const cv::Mat &image);
+  Result predictCamera();
+  bool isEmpty();
 };
 
 #endif //CS3307_FACIAL_REC_FACERECOGNIZER_H_
