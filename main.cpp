@@ -16,14 +16,14 @@ using namespace cv;
 using namespace std;
 int main(int argc, const char *argv[]) {
 	// still inaccurate due to sample size
-	Camera camera = *Camera::getInstance();
+	Camera camera = Camera::getInstance();
 
 	vector<KnownPerson> known;
 
 	int i = 0;
 	char addKP = 'Y';
 
-	while (addKP!='N' || addKP !='n') {	
+	while (addKP != 'N' || addKP != 'n') {
 		cout << "Would you like to add a new known person to the database? (Y/N): ";
 		cin.get(addKP);
 		cin.ignore();

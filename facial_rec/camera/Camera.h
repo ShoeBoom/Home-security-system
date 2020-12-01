@@ -8,14 +8,15 @@
 class Camera {
  public:
   void operator=(const Camera &) = delete;
-  static Camera *getInstance();
+  static Camera &getInstance() {
+	  static Camera _instance;
+	  return _instance;
+  }
   cv::Mat capture();
   cv::Mat captureGrayscale();
   cv::Mat captureRGB();
  private:
   Camera();
-  static Camera *_instance;
-  static std::mutex mutex_;
   cv::VideoCapture cap;
 
 };

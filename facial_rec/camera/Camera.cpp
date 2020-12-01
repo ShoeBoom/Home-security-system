@@ -8,8 +8,6 @@ using namespace cv;
 using namespace std;
 #include "Camera.h"
 
-Camera *Camera::_instance{nullptr};
-std::mutex Camera::mutex_;
 
 Camera::Camera() {
 	//--- INITIALIZE VIDEOCAPTURE
@@ -22,14 +20,6 @@ Camera::Camera() {
 	if (!cap.isOpened()) {
 		cerr << "ERROR! Unable to open camera\n";
 	}
-}
-
-Camera *Camera::getInstance() {
-	std::lock_guard<std::mutex> lock(mutex_);
-	if (_instance == nullptr) {
-		_instance = new Camera();
-	}
-	return _instance;
 }
 
 Mat Camera::capture() {
