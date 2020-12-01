@@ -8,15 +8,12 @@
 using namespace std;
 
 void FaceRecognizer::retrain() {
-	// initialize database
-	Database peopleDatabase = Database::getInstance();
-
 	// format imgs and labels
 	vector<cv::Mat> imgs;
 	vector<int> labels;
-	for (int i = 0; i < peopleDatabase.knownSize(); ++i) {
+	for (int i = 0; i < Database::getInstance().knownSize(); ++i) {
 		// add to images
-		auto personImg = peopleDatabase[i].getImage();
+		auto personImg = Database::getInstance()[i].getImage();
 		imgs.reserve(imgs.size() + personImg.size());
 		imgs.insert(imgs.end(), personImg.begin(), personImg.end());
 
@@ -27,11 +24,13 @@ void FaceRecognizer::retrain() {
 
 FaceRecognizer::FaceRecognizer() {
 	model->setThreshold(THRESHOLD);
+	if (Database::getInstance().knownSize() > 0) {
+		retrain();
+	}
 };
 
 void FaceRecognizer::addPerson(KnownPerson person) {
-	Database peopleDatabase = Database::getInstance();
-	peopleDatabase.addKnownPerson(person);
+	Database::getInstance().addKnownPerson(person);
 	retrain();
 }
 
@@ -41,7 +40,6 @@ Result FaceRecognizer::predictCamera() {
 }
 
 Result FaceRecognizer::predict(const cv::Mat &image) {
-	Database peopleDatabase = Database::getInstance();
 	int index = 0;
 	double confidence = 0.0;
 	model->predict(image, index, confidence);
@@ -50,7 +48,7 @@ Result FaceRecognizer::predict(const cv::Mat &image) {
 	return {.personID = index, .confidence = confidence};
 }
 bool FaceRecognizer::isEmpty() {
-	return !model.empty();
+	return Database::getInstance().knownSize() == 0;
 }
 /**
  * Add a callback to be called everytime a prediction is made
@@ -64,4 +62,8 @@ void FaceRecognizer::callAll(Result result) {
 		func(result);
 	}
 }
+KnownPerson FaceRecognizer::getPersonByID(int i) {
+	return Database::getInstance()[i];
+}
+
 FaceRecognizer::~FaceRecognizer() = default;

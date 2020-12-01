@@ -22,7 +22,7 @@ class FaceRecognizer {
 
  public:
   static FaceRecognizer &getRecognizer() {
-	  static FaceRecognizer recog = FaceRecognizer();
+	  static FaceRecognizer recog;
 	  return recog;
   }
   ~FaceRecognizer();
@@ -32,6 +32,7 @@ class FaceRecognizer {
   bool isEmpty();
   void onPrediction(const std::function<void(Result)> &func);
   void retrain();
+  static KnownPerson getPersonByID(int i);
 };
 
 #endif //CS3307_FACIAL_REC_FACERECOGNIZER_H_
