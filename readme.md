@@ -1,4 +1,9 @@
 ## Setup
+
+### VMWare
+install VMWare for your system
+install and set up Raspberry Pi Desktop
+
 ### cmake
 make sure cmake version is >=3.16
 ```shell script
@@ -26,6 +31,18 @@ sudo apt-get install qt5-default
 if OpenCV is not installed run the following in the project directory.
 ```shell script
 bash ./install_opencv.sh 
+```
+
+### Audio
+ALSA utils
+```shell script
+sudo apt-get install -y alsa-utils
+alsamixer
+```
+Use arrow keys to increase PCM and Aux volume. Hit ESC
+To save what you changed in alsamixer as defaults:
+```shell script
+$ sudo alsactl store 0
 ```
 
 ## Build & run
