@@ -11,8 +11,8 @@ FaceDetection::~FaceDetection() {
 
 }
 FaceDetection::FaceDetection() {
-	face_cascade.load("classifiers/haarcascade_frontalface_alt.xml");
-	eyes_cascade.load("classifiers/haarcascade_eye.xml");
+	face_cascade.load("../classifiers/haarcascade_frontalface_alt.xml");
+	eyes_cascade.load("../classifiers/haarcascade_eye.xml");
 }
 Data FaceDetection::detectWithEyeDistance(cv::Mat image) {
 	std::vector<Rect> faces;
