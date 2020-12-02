@@ -1,3 +1,9 @@
+/** 
+ * Unknown person class
+ * Stores information about the unknown person (images).
+ * @author group53
+ */
+
 #ifndef UNKNOWNPERSON_CLASS_H
 #define UNKNOWNPERSON_CLASS_H
 #include <string>
@@ -5,18 +11,30 @@
 #include <opencv2/core.hpp>
 
 class UnknownPerson {
-    public:
-  std::vector<cv::Mat> images;
+ public:
+  std::vector<cv::Mat> images; /**< person's images */ 
 
-  // Constructor
+  /** 
+   * Constructor that creates an unknown person object
+   * @param images images of unknown person
+   */
   UnknownPerson(std::vector<cv::Mat> imgs);
-  // Destructor
+  
+  /** 
+   * Destructor
+   */
   ~UnknownPerson();
 
-  // Setter Methods
+  /** 
+   * Set person's images
+   * @param imgs
+   */
   void setImage(std::vector<cv::Mat> imgs);
 
-  // Getter Methods
+  /** 
+   * Get person's images
+   * @return imgs
+   */
   std::vector<cv::Mat> getImage();
 
 };
