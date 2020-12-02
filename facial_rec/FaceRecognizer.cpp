@@ -52,7 +52,7 @@ bool FaceRecognizer::isEmpty() {
 }
 /**
  * Add a callback to be called everytime a prediction is made
- * @param function the callback. The result.personID = -1 when a known person is not found
+ * @param function the callback. The result.personID = -1 when a known person is not found, -2 when a face is found but is unknown
  */
 void FaceRecognizer::onPrediction(const std::function<void(Result)> &function) {
 	callbacks.push_back(function);

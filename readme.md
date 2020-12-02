@@ -8,9 +8,9 @@ if not follow: https://snapcraft.io/install/cmake/debian#install
 
 ### curl
 ```
-sudo apt update && sudo apt upgrade
-sudo apt install curl
-sudo apt-get install libcurl4-openssl-dev
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y curl
+sudo apt-get install -y libcurl4-openssl-dev
 ```
 ### GTK
 ```shell script
