@@ -5,6 +5,8 @@
 #include <QTimer>
 #include <QDebug>
 
+#include <cstdlib>
+
 #include "../facial_rec/camera/Camera.h"
 #include "../facial_rec/FaceRecognizer.h"
 
@@ -13,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
 	ui->setupUi(this);
 
 	timer = new QTimer(this);
+	system("aplay ../audio/launch.wav");
 	connect(timer, &QTimer::timeout, this, &MainWindow::updateImage);
 	connect(timer, &QTimer::timeout, this, &MainWindow::updatePrediction);
 	timer->start(10);
