@@ -13,9 +13,11 @@ MainWindow::MainWindow(QWidget *parent)
 	ui->setupUi(this);
 
 	timer = new QTimer(this);
+	predictionTimer = new QTimer(this);
 	connect(timer, &QTimer::timeout, this, &MainWindow::updateImage);
-	connect(timer, &QTimer::timeout, this, &MainWindow::updatePrediction);
+	connect(predictionTimer, &QTimer::timeout, this, &MainWindow::updatePrediction);
 	timer->start(10);
+	predictionTimer->start(1000);
 }
 
 void MainWindow::updateImage() {
@@ -38,13 +40,17 @@ void MainWindow::updatePrediction() {
 		if (!img.empty()) {
 			auto pred = FaceRecognizer::getRecognizer().predict(img);
 			int i = pred.personID;
-			if (i != -1) {
+			if (i > -1) {
 				auto person = FaceRecognizer::getPersonByID(i);
 				ui->prediction->setText(
-					QString::fromStdString(person.firstName) + " " + QString::number(pred.confidence));
-			} else {
+					QString::fromStdString(person.firstName) + " " + QString::number(pred.confidence) + " "
+						+ QString::number(pred.distance));
+			} else if (i == -1) {
 				ui->prediction->setText("No faces found " + QString::number(pred.confidence));
+			} else {
+				ui->prediction->setText("Unknown person found");
 			}
+
 
 		}
 	} else {

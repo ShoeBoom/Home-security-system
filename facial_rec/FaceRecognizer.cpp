@@ -1,8 +1,6 @@
-#define THRESHOLD 20.0
+#define THRESHOLD 15.0
 
 #include "FaceRecognizer.h"
-#include <opencv2/core.hpp>
-#include <opencv2/face.hpp>
 #include "./camera/Camera.h"
 #include <vector>
 using namespace std;
@@ -43,16 +41,28 @@ Result FaceRecognizer::predict(const cv::Mat &image) {
 	int index = 0;
 	double confidence = 0.0;
 	model->predict(image, index, confidence);
+	double distance = -1;
+	auto dect = FaceDetection::getDetector();
+	auto data = dect.detectWithEyeDistance(image);
+	if (index != -1) {
+		distance = data.first_person_distance;
+	} else {
+		if (data.number_of_faces > 0) {
+			index = -2;
+		}
+	}
+	this->callAll({.personID = index, .confidence = confidence, .distance=distance});
 
-	this->callAll({.personID = index, .confidence = confidence});
-	return {.personID = index, .confidence = confidence};
+	return {.personID = index, .confidence = confidence, .distance=distance};
 }
 bool FaceRecognizer::isEmpty() {
 	return Database::getInstance().knownSize() == 0;
 }
 /**
  * Add a subscription to be called everytime a prediction is made
- * @param function: the subscribed function. The result.personID = -1 when a known person is not found, -2 when a face is found but is unknown
+ * @param function: the subscribed function. The result.personID = -1 when a known person is not found,
+ * 										-2 when a face is found but is unknown.
+ * 										if result.distance > 2 the person is too far
  */
 void FaceRecognizer::onPrediction(const std::function<void(Result)> &function) {
 	callbacks.push_back(function);

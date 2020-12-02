@@ -3,6 +3,7 @@
 
 #include "database/Database.h"
 #include "database/KnownPerson.h"
+#include "facial_detc/FaceDetection.h"
 #include <opencv2/core.hpp>
 #include <opencv2/face.hpp>
 #include <vector>
@@ -11,6 +12,7 @@
 struct Result {
   int personID;
   double confidence;
+  double distance;
 };
 
 class FaceRecognizer {

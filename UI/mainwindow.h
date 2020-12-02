@@ -27,6 +27,7 @@ class MainWindow : public QMainWindow {
 
  private:
   QTimer *timer;
+  QTimer *predictionTimer;
   Ui::MainWindow *ui;
   AddNewUser *newuserdialog;
 
