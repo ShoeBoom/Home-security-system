@@ -1,3 +1,8 @@
+/**
+@brief: 
+@author: Group53
+**/
+
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include "./addnewuser.h"
@@ -10,6 +15,11 @@
 #include "../facial_rec/camera/Camera.h"
 #include "../facial_rec/FaceRecognizer.h"
 
+/**
+@brief: Constructor
+@param: *parent
+@return: none
+**/
 MainWindow::MainWindow(QWidget *parent)
 	: QMainWindow(parent), ui(new Ui::MainWindow) {
 	ui->setupUi(this);
@@ -26,6 +36,11 @@ MainWindow::MainWindow(QWidget *parent)
 	predictionTimer->start(1000);
 }
 
+/**
+@brief: Updates the camera image when it is not empty
+@param: none 
+@return: none
+**/
 void MainWindow::updateImage() {
 	Camera c = Camera::getInstance();
 	auto img = c.captureRGB();
@@ -38,6 +53,11 @@ void MainWindow::updateImage() {
 	}
 }
 
+/**
+@brief:
+@param: none
+@return: none
+**/
 void MainWindow::updatePrediction() {
 
 	if (!FaceRecognizer::getRecognizer().isEmpty()) {
@@ -73,19 +93,39 @@ void MainWindow::updatePrediction() {
 	}
 }
 
+/**
+@brief: Destructor
+@param: none
+@return: none
+**/
 MainWindow::~MainWindow() {
 	delete ui;
 }
 
+/**
+@brief: Rings a the doorbell when the button is clicked
+@param: none
+@return: none
+**/
 void MainWindow::on_audioButton_clicked() {
 	system("aplay ../audio/doorbell.wav");
 
 }
 
+/**
+@brief:
+@param: none
+@return: none
+**/
 void MainWindow::on_pushButton_clicked() {
 
 }
 
+/**
+@brief:
+@param: none
+@return: none
+**/
 void MainWindow::on_actionAdd_New_User_triggered() {
 	newuserdialog = new AddNewUser();
 	newuserdialog->show();
