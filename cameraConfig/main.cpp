@@ -1,7 +1,8 @@
 /**
 CS 3307 Security Project
 Date: 2020-11-11
-Description: main.cpp file that runs the acceptence tests for integrating the camera
+@author: Group53
+@brief: main.cpp file that runs the acceptence tests for integrating the camera
 **/
 
 #include"camera.h"
