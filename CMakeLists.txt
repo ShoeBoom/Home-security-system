@@ -28,7 +28,8 @@ add_executable(cs3307 main.cpp
         UI/addnewuser.cpp UI/addnewuser.h UI/addnewuser.ui
         facial_rec/facial_detc/FaceDetection.cpp facial_rec/facial_detc/FaceDetection.h
         demo/subscriptionExample.cpp demo/subscriptionExample.h
-        screenshots/SaveScreenshot.cpp screenshots/SaveScreenshot.h)
+        screenshots/SaveScreenshot.cpp screenshots/SaveScreenshot.h
+        twilio/Message.cpp twilio/Message.h)
 if (UNIX)
     target_link_libraries(cs3307 ${OpenCV_LIBS})
     include_directories(${CURL_INCLUDE_DIR})

@@ -20,11 +20,11 @@
 int main(int argc, char * argv[])
 {
         int cmd;
-        std::string account_sid = "account_sid";
-        std::string auth_token = "auth_token";
+        std::string account_sid = "***REMOVED***";
+        std::string auth_token = "***REMOVED***";
         std::string message = "Hmm...Looks like someone I don't recognize is at your door";
-        std::string from_number = "from_number";
-        std::string to_number = "to_number";
+        std::string from_number = "***REMOVED***";
+        std::string to_number = "***REMOVED***";
         std::string picture_url = "";
         bool verbose = false;
 
