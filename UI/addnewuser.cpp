@@ -40,7 +40,7 @@ void AddNewUser::on_captureButton_clicked() {
 }
 
 /**
-@brief:
+@brief: Action for user submission
 @param: none
 @return: none
 **/

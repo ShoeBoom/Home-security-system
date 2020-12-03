@@ -55,7 +55,7 @@ void MainWindow::updateImage() {
 }
 
 /**
-@brief:
+@brief: update the prediction text
 @param: none
 @return: none
 **/
@@ -114,7 +114,7 @@ void MainWindow::on_audioButton_clicked() {
 }
 
 /**
-@brief:
+@brief: action for "View Screenshots"
 @param: none
 @return: none
 **/
@@ -124,7 +124,7 @@ void MainWindow::on_pushButton_clicked() {
 }
 
 /**
-@brief:
+@brief: action for add new user
 @param: none
 @return: none
 **/
