@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <time.h>
 
 #include "../facial_rec/camera/Camera.h"
 #include "../facial_rec/FaceRecognizer.h"
@@ -29,6 +30,11 @@ class MainWindow : public QMainWindow {
  private:
   QTimer *timer;
   QTimer *predictionTimer;
+  long curTime;
+  long kprevTime;
+  long kdiffTime;
+  long ukprevTime;
+  long ukdiffTime;
   Ui::MainWindow *ui;
   AddNewUser *newuserdialog;
 
