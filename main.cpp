@@ -2,12 +2,13 @@
 
 #include <QApplication>
 #include <utility>
-#include "demo/subscriptionExample.h"
+#include <screenshots/SaveScreenshot.h>
 
 int main(int argc, char *argv[]) {
-	auto *example = new subscriptionExample();
-	FaceRecognizer::getRecognizer().onPrediction([example](Result r) {
-	  example->run(std::move(r));
+    auto *screenshot = new SaveScreenshot();
+
+	FaceRecognizer::getRecognizer().onPrediction([screenshot](Result r) {
+        screenshot->run(std::move(r));
 	});
 	QApplication a(argc, argv);
 	MainWindow w;
