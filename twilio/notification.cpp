@@ -1,10 +1,19 @@
+/**
+@brief: Provides the system a method of sending a text notification.
+@author:Group53
+**/
+
 #include "notification.h"
 //#include <iostream>
 #include "twilio.h"
 #include <string>
 using namespace std;
 
-// Constructor that creates a database object
+/**
+@brief: Constructor that creates a database object
+@param: none
+@return: none
+**/
 notification::notification() {
     string account_sid = "account_sid";
     string auth_token = "auth_token";
@@ -22,6 +31,7 @@ auto Twilio::twilio = std::make_shared<twilio::Twilio>(
     auth_token
 );
 
+//Determines if the message was sent successfully
 bool message_success = twilio->send_message(
         to_number,
         from_number,
@@ -31,7 +41,11 @@ bool message_success = twilio->send_message(
         verbose
 );
 
-// Destructor
+/**
+@brief: Destructor
+@param: none
+@return: none
+**/
 notification::~notification() {
 }
 
