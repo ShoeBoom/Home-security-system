@@ -14,7 +14,7 @@
 class Camera {
  public:
   /** 
-   * Constructor that creates a camera object
+   * Delete the copy assignment operator
    */
   void operator=(const Camera &) = delete;
   

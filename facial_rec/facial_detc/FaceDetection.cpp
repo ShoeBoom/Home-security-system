@@ -1,19 +1,33 @@
-//
-// Created by shubh on 2020-12-02.
-//
+/** 
+ * Face detection class
+ * @brief Detects number of faces in frame and distance between eyes.
+ * @author group53
+ */
 
 #include "FaceDetection.h"
 #include <math.h>
 using namespace std;
 using namespace cv;
 
+/** 
+* @brief Destructor
+*/
 FaceDetection::~FaceDetection() {
 
 }
+/** 
+ * @brief Constructor that creates a face detection object
+ */
 FaceDetection::FaceDetection() {
 	face_cascade.load("../classifiers/haarcascade_frontalface_alt.xml");
 	eyes_cascade.load("../classifiers/haarcascade_eye.xml");
 }
+
+/** 
+ * @brief Determine number of faces and their distance from the system with distance between eyes
+ * @param image camera frame input
+ * @return number of faces and their distance
+ */
 Data FaceDetection::detectWithEyeDistance(cv::Mat image) {
 	std::vector<Rect> faces;
 	face_cascade.detectMultiScale(image, faces);
@@ -31,6 +45,12 @@ Data FaceDetection::detectWithEyeDistance(cv::Mat image) {
 
 	return {.number_of_faces = static_cast<int>(faces.size()), .faces = faces, .first_person_distance =  diff};
 }
+
+/** 
+ * @brief Determine number of faces and their distance from the system without distance between eyes
+ * @param image camera frame input
+ * @return number of faces and their distance
+ */
 Data FaceDetection::detectWithoutEyeDistance(cv::Mat image) {
 	std::vector<Rect> faces;
 	face_cascade.detectMultiScale(image, faces);
