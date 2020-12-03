@@ -1,3 +1,9 @@
+/** 
+ * Camera
+ * @brief Camera for facial recognition.
+ * @author group53
+ */
+
 #include <opencv2/core.hpp>
 #include <opencv2/videoio.hpp>
 #include <opencv2/highgui.hpp>
@@ -10,18 +16,25 @@ using namespace std;
 
 
 Camera::Camera() {
-	//--- INITIALIZE VIDEOCAPTURE
-	// open the default camera using default API
-	int deviceID = 0;             // 0 = open default camera
-	int apiID = cv::CAP_ANY;      // 0 = autodetect default API
-	// open selected camera using selected API
-	cap.open(deviceID, apiID);
-	// check if we succeeded
+	/** 
+	 * --- INITIALIZE VIDEOCAPTURE
+	 * --- open the default camera using default API
+	 */
+	int deviceID = 0;             /**< 0 = open default camera */
+	int apiID = cv::CAP_ANY;      /**< 0 = autodetect default API */
+	cap.open(deviceID, apiID);  /**< open selected camera using selected API */
+	/** 
+	 * check if we succeeded
+	 */
 	if (!cap.isOpened()) {
 		cerr << "ERROR! Unable to open camera\n";
 	}
 }
 
+/** 
+ * Capture GBR frame
+ * @return GBR frame
+ */
 Mat Camera::capture() {
 	Mat frame;
 	cap.read(frame);
@@ -32,6 +45,10 @@ Mat Camera::capture() {
 	return frame;
 }
 
+/** 
+ * Capture RGB frame
+ * @return RGB frame
+ */
 cv::Mat Camera::captureRGB() {
 	Mat frame = this->capture();
 	Mat rgb;
@@ -41,6 +58,10 @@ cv::Mat Camera::captureRGB() {
 	return rgb;
 }
 
+/** 
+ * Capture grayscame frame
+ * @return grayscale frame
+ */
 cv::Mat Camera::captureGrayscale() {
 	Mat frame = this->capture();
 	Mat greyMat2;
