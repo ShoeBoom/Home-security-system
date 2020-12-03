@@ -14,6 +14,9 @@ MainWindow::MainWindow(QWidget *parent)
 	: QMainWindow(parent), ui(new Ui::MainWindow) {
 	ui->setupUi(this);
 
+	kprevTime = time(NULL);
+	ukprevTime = time(NULL);
+
 	timer = new QTimer(this);
 	system("aplay ../audio/launch.wav");
 	predictionTimer = new QTimer(this);
@@ -38,6 +41,9 @@ void MainWindow::updateImage() {
 void MainWindow::updatePrediction() {
 
 	if (!FaceRecognizer::getRecognizer().isEmpty()) {
+		curTime = time(NULL);
+		kdiffTime = curTime - kprevTime;
+		ukdiffTime = curTime - ukprevTime;
 		Camera c = Camera::getInstance();
 		auto img = c.captureGrayscale();
 		if (!img.empty()) {
@@ -48,13 +54,19 @@ void MainWindow::updatePrediction() {
 				ui->prediction->setText("Hello " + 
 					QString::fromStdString(person.firstName) + "\n" + QString::number(pred.confidence) + " "
 						+ QString::number(pred.distance));
+				if (kdiffTime >= 30){
+					system("aplay ../audio/welcomeback.wav");
+					kprevTime = time(NULL);
+				}
 			} else if (i == -1) {
 				ui->prediction->setText("No faces found " + QString::number(pred.confidence));
 			} else {
-				ui->prediction->setText("Unknown person found");	
+				ui->prediction->setText("Unknown person found");
+				if (ukdiffTime >= 30){
+					system("aplay ../audio/doorbell.wav");
+					ukprevTime = time(NULL);
+				}	
 			}
-
-
 		}
 	} else {
 		ui->prediction->setText("No users in database");

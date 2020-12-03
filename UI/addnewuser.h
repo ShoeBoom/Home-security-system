@@ -1,3 +1,8 @@
+/**
+@brief:
+@author: Group53
+**/
+
 #ifndef ADDNEWUSER_H
 #define ADDNEWUSER_H
 
