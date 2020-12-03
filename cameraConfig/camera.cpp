@@ -1,7 +1,8 @@
 /**
 CS 3307 Security Project
 Date: 2020-11-11
-Description: camera.cpp file that implements the functions of the raspberry pi camera (Hardware)
+@author: Group53
+@brief: camera.cpp file that implements the functions of the raspberry pi camera (Hardware)
 **/
 
 #include <stdio.h>
@@ -16,10 +17,9 @@ camera::camera(){}
 camera::~camera(){}
 
 /**
-start
-Parameters: time
-Description: Starts the raspberry pi camera (hardware) and takes the time in miliseconds
-Return: none
+@brief: Starts the raspberry pi camera (hardware) and takes the time in miliseconds
+@param: time
+@return: none
 **/
 void camera::start(string time)
 {
@@ -29,10 +29,9 @@ void camera::start(string time)
 
 }
 /**
-screenShot
-Parameters: none
-Description: Takes a screenshot of the current feed on the camera, and saves a jpeg file
-Return: none
+@brief: Takes a screenshot of the current feed on the camera, and saves a jpeg file
+@param: none
+@return: none
 **/
 void camera::screenShot()
 {
@@ -40,10 +39,9 @@ void camera::screenShot()
 }
 
 /**
-off
-Parameters: none
-Description: Turns the raspberry pi camera off and ends execution
-Return: none
+@brief: Turns the raspberry pi camera off and ends execution
+@param: none
+@return: none
 **/
 void camera::off()
 {
