@@ -47,19 +47,19 @@ Result FaceRecognizer::predict(const cv::Mat &image) {
 	if (index != -1) {
 		distance = data.first_person_distance;
 	} else {
-		if (data.number_of_faces > 0) {
+		if (data.number_of_faces > 0 && data.first_person_distance < 2 && data.first_person_distance != -1) {
 			index = -2;
 		}
 	}
-	this->callAll({.personID = index, .confidence = confidence, .distance=distance});
+	this->callAll({.personID = index, .confidence = confidence, .distance=distance, .image=image});
 
-	return {.personID = index, .confidence = confidence, .distance=distance};
+	return {.personID = index, .confidence = confidence, .distance=distance, .image=image};
 }
 bool FaceRecognizer::isEmpty() {
 	return Database::getInstance().knownSize() == 0;
 }
 /**
- * Add a subscription to be called everytime a prediction is made
+ * @brief Add a subscription to be called everytime a prediction is made
  * @param function: the subscribed function. The result.personID = -1 when a known person is not found,
  * 										-2 when a face is found but is unknown.
  * 										if result.distance > 2 the person is too far

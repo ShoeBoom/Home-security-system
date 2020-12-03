@@ -13,6 +13,7 @@ struct Result {
   int personID;
   double confidence;
   double distance;
+  cv::Mat image;
 };
 
 class FaceRecognizer {
