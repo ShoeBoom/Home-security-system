@@ -59,7 +59,7 @@ bool FaceRecognizer::isEmpty() {
 	return Database::getInstance().knownSize() == 0;
 }
 /**
- * Add a subscription to be called everytime a prediction is made
+ * @brief Add a subscription to be called everytime a prediction is made
  * @param function: the subscribed function. The result.personID = -1 when a known person is not found,
  * 										-2 when a face is found but is unknown.
  * 										if result.distance > 2 the person is too far
