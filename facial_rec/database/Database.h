@@ -14,42 +14,42 @@
 class Database {
  public:
   /** 
-   * Constructor that creates a database object
+   * @brief Delete the copy assignment operator
    */
   void operator=(const Database &) = delete;
   
    /** 
-   * Create an instance of the database class using Singleton design pattern
+   * @brief Create an instance of the database class using Singleton design pattern
    */ 
   static Database &getInstance() {
 	  static Database _instance;
 	  return _instance;
   }
   /** 
-   * Descructor
+   * @brief Destructor
    */
   ~Database();
 
   /** 
-   * Add a known person to the database
+   * @brief Add a known person to the database
    * @param kPerson new known person
    */
   int addKnownPerson(KnownPerson kPerson);
 
   /** 
-   * Add an unknown person to the database
+   * @brief Add an unknown person to the database
    * @param ukPerson new known person
    */
   void addUnknownPerson(UnknownPerson ukPerson);
   
   /** 
-   * Get a known person from the database
+   * @brief Get a known person from the database
    * @param b known person index
    */
   KnownPerson operator[](int b);
   
   /**
-  * Get number of known people
+  * @brief Get number of known people
   */
   int knownSize();
  

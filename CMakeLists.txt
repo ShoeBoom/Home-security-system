@@ -26,10 +26,13 @@ add_executable(cs3307 main.cpp
         facial_rec/camera/Camera.cpp facial_rec/camera/Camera.h
         UI/mainwindow.cpp UI/mainwindow.h UI/mainwindow.ui
         UI/addnewuser.cpp UI/addnewuser.h UI/addnewuser.ui
-        facial_rec/facial_detc/FaceDetection.cpp facial_rec/facial_detc/FaceDetection.h)
+        facial_rec/facial_detc/FaceDetection.cpp facial_rec/facial_detc/FaceDetection.h
+        demo/subscriptionExample.cpp demo/subscriptionExample.h
+        screenshots/SaveScreenshot.cpp screenshots/SaveScreenshot.h)
 if (UNIX)
     target_link_libraries(cs3307 ${OpenCV_LIBS})
     include_directories(${CURL_INCLUDE_DIR})
     target_link_libraries(cs3307 ${CURL_LIBRARIES})
 endif ()
 target_link_libraries(cs3307 Qt5::Widgets)
+target_link_libraries(cs3307 stdc++fs)

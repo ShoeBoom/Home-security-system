@@ -1,6 +1,6 @@
 /** 
  * Unknown person
- * Stores information about the unknown person (images).
+ * @brief Stores information about the unknown person (images).
  * @author group53
  */
 #include "UnknownPerson.h"

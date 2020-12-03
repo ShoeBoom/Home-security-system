@@ -1,3 +1,8 @@
+/**
+@brief: Provides a blueprint to addnewuser.cpp
+@author: Group53
+**/
+
 #ifndef ADDNEWUSER_H
 #define ADDNEWUSER_H
 
