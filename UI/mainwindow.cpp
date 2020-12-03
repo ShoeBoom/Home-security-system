@@ -14,6 +14,7 @@
 
 #include "../facial_rec/camera/Camera.h"
 #include "../facial_rec/FaceRecognizer.h"
+#include <bits/stdc++.h>
 
 /**
 @brief: Constructor
@@ -118,6 +119,7 @@ void MainWindow::on_audioButton_clicked() {
 @return: none
 **/
 void MainWindow::on_pushButton_clicked() {
+    system("/usr/bin/pcmanfm ./screenshots");
 
 }
 
