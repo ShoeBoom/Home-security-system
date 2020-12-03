@@ -1,5 +1,5 @@
 /**
-@brief:
+@brief: Provides a blueprint to addnewuser.cpp
 @author: Group53
 **/
 
