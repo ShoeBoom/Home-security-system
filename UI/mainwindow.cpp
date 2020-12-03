@@ -45,13 +45,13 @@ void MainWindow::updatePrediction() {
 			int i = pred.personID;
 			if (i > -1) {
 				auto person = FaceRecognizer::getPersonByID(i);
-				ui->prediction->setText(
-					QString::fromStdString(person.firstName) + " " + QString::number(pred.confidence) + " "
+				ui->prediction->setText("Hello " + 
+					QString::fromStdString(person.firstName) + "\n" + QString::number(pred.confidence) + " "
 						+ QString::number(pred.distance));
 			} else if (i == -1) {
 				ui->prediction->setText("No faces found " + QString::number(pred.confidence));
 			} else {
-				ui->prediction->setText("Unknown person found");
+				ui->prediction->setText("Unknown person found");	
 			}
 
 
@@ -63,6 +63,11 @@ void MainWindow::updatePrediction() {
 
 MainWindow::~MainWindow() {
 	delete ui;
+}
+
+void MainWindow::on_audioButton_clicked() {
+	system("aplay ../audio/doorbell.wav");
+
 }
 
 void MainWindow::on_pushButton_clicked() {

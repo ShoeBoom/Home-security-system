@@ -35,6 +35,13 @@
        </widget>
       </item>
       <item alignment="Qt::AlignHCenter|Qt::AlignTop">
+      <widget class="QPushButton" name="audioButton">
+       <property name="text">
+        <string>Ring Bell</string>
+       </property>
+      </widget>
+     </item>
+      <item alignment="Qt::AlignHCenter|Qt::AlignTop">
        <widget class="QPushButton" name="pushButton">
         <property name="text">
          <string>View Recordings</string>

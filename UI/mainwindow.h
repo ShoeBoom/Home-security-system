@@ -24,6 +24,7 @@ class MainWindow : public QMainWindow {
   void updatePrediction();
 
   void on_actionAdd_New_User_triggered();
+  void on_audioButton_clicked();
 
  private:
   QTimer *timer;
