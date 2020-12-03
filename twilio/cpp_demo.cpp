@@ -1,3 +1,4 @@
+
 // taken from https://github.com/TwilioDevEd/twilio_cpp_demo/blob/b27466ab64ffd9e8c844d3082f111b2b1c391980/src/twilio.cc
 /*
 * This example demonstrates sending a SMS or MMS in C++ using the Twilio REST
@@ -13,19 +14,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-
-#include "twilio.hh"
-
+#include "cpp_demo"
+#include "twilio.h"
 
 int main(int argc, char * argv[])
 {
-         string account_sid = "account_sid";
-           string auth_token = "auth_token";
-           string message_body = "Hmm...Looks like someone I don't recognize is at your door";
-           string from_number = "from_number";
-           string to_number = "to_number";
-           string picture_url = "";
-           bool verbose = false;
+        int cmd;
+        std::string account_sid = "account_sid";
+        std::string auth_token = "auth_token";
+        std::string message = "Hmm...Looks like someone I don't recognize is at your door";
+        std::string from_number = "from_number";
+        std::string to_number = "to_number";
+        std::string picture_url = "";
+        bool verbose = false;
+
 
         opterr = 0;
 
@@ -98,6 +100,7 @@ int main(int argc, char * argv[])
                 verbose
         );
 
+       
         // Report success or failure
         if (!message_success) {
                 if (verbose) {
@@ -116,3 +119,6 @@ int main(int argc, char * argv[])
 
         return 0;
 }
+
+
+

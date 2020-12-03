@@ -3,6 +3,7 @@
 #include "FaceRecognizer.h"
 #include "./camera/Camera.h"
 #include <vector>
+#include "twilio.h"
 using namespace std;
 
 void FaceRecognizer::retrain() {
@@ -65,7 +66,7 @@ bool FaceRecognizer::isEmpty() {
  * 										if result.distance > 2 the person is too far
  */
 void FaceRecognizer::onPrediction(const std::function<void(Result)> &function) {
-	callbacks.push_back(function);
+    
 }
 void FaceRecognizer::callAll(Result result) {
 	for (const auto &func : callbacks) {
