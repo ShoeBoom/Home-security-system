@@ -1,5 +1,5 @@
 /** 
- * Camera
+ * Camera class
  * @brief Camera for facial recognition.
  * @author group53
  */
@@ -14,7 +14,9 @@ using namespace cv;
 using namespace std;
 #include "Camera.h"
 
-
+/** 
+ * @brief Constructor that creates a camera object
+ */
 Camera::Camera() {
 	/** 
 	 * --- INITIALIZE VIDEOCAPTURE
@@ -32,7 +34,7 @@ Camera::Camera() {
 }
 
 /** 
- * Capture GBR frame
+ * @brief Capture GBR frame
  * @return GBR frame
  */
 Mat Camera::capture() {
@@ -46,7 +48,7 @@ Mat Camera::capture() {
 }
 
 /** 
- * Capture RGB frame
+ * @brief Capture RGB frame
  * @return RGB frame
  */
 cv::Mat Camera::captureRGB() {
@@ -59,7 +61,7 @@ cv::Mat Camera::captureRGB() {
 }
 
 /** 
- * Capture grayscame frame
+ * @brief Capture grayscame frame
  * @return grayscale frame
  */
 cv::Mat Camera::captureGrayscale() {

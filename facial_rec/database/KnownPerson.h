@@ -1,6 +1,6 @@
 /** 
  * Known person class
- * Stores information about the known person (name, phone number, images).
+ * @brief Stores information about the known person (name, phone number, images).
  * @author group53
  */
 
@@ -19,7 +19,7 @@ class KnownPerson {
   std::vector<cv::Mat> images; /**< person's images */ 
 
   /** 
-   * Constructor that creates a known person object
+   * @brief Constructor that creates a known person object
    * @param first_name first name
    * @param last_name last name
    * @param phone_number phone number
@@ -31,24 +31,56 @@ class KnownPerson {
               const std::vector<cv::Mat> &images);
 
   /** 
-   * Destructor
+   * @brief Destructor
    */
   ~KnownPerson();
 
   /** 
-   * Setter methods
+   * @brief Set person's first name
+   * @param fName
    */
   void setFirstName(std::string fName);
+
+  /** 
+   * @brief Set person's last name
+   * @param lName
+   */
   void setLastName(std::string lName);
+  
+  /** 
+   * @brief Set person's phone number
+   * @param pNum
+   */
   void setPhoneNumber(std::string pNum);
+  
+  /** 
+   * @brief Set person's images
+   * @param imgs
+   */
   void setImage(std::vector<cv::Mat> imgs);
 
   /** 
-   * Getter methods
+   * @brief Get person's first name
+   * @return first name
    */
   std::string getFirstName();
+
+  /** 
+   * @brief Get person's last name
+   * @return last name
+   */
   std::string getLastName();
+
+  /** 
+   * @brief Get person's phone number
+   * @return phone number
+   */
   std::string getPhoneNumber();
+
+  /** 
+   * @brief Get person's images
+   * @return images
+   */
   std::vector<cv::Mat> getImage();
 };
 

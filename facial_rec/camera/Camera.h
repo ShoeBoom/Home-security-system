@@ -1,5 +1,5 @@
 /** 
- * Camera class
+ * Camera
  * @brief Camera for facial recognition.
  * @author group53
  */
@@ -14,12 +14,12 @@
 class Camera {
  public:
   /** 
-   * Delete the copy assignment operator
+   * @brief Delete the copy assignment operator
    */
   void operator=(const Camera &) = delete;
   
   /** 
-  * Create an instance of the camera class using Singleton design pattern
+  * @brief Create an instance of the camera class using Singleton design pattern
   */
   static Camera &getInstance() {
 	  static Camera _instance;
@@ -27,26 +27,26 @@ class Camera {
   }
 
   /** 
-   * Capture GBR frame
+   * @brief Capture GBR frame
    * @return GBR frame
    */
   cv::Mat capture();
 
   /** 
-   * Capture grayscame frame
+   * @brief Capture grayscame frame
    * @return grayscale frame
    */
   cv::Mat captureGrayscale();
 
   /** 
-   * Capture RGB frame
+   * @brief Capture RGB frame
    * @return RGB frame
    */
   cv::Mat captureRGB();
 
  private:
   /** 
-   * Constructor that creates a camera object
+   * @brief Constructor that creates a camera object
    */
   Camera();
   cv::VideoCapture cap;

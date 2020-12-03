@@ -12,7 +12,7 @@
 using namespace std;
 
 /** 
- * Constructor that creates a database object
+ * @brief Constructor that creates a database object
  */
 Database::Database() = default;
 
@@ -22,7 +22,7 @@ Database::Database() = default;
 Database::~Database() = default;
 
 /** 
- * Add a known person to the database
+ * @brief Add a known person to the database
  * @param kPerson new known person
  * @return number of known people
  */
@@ -32,7 +32,7 @@ int Database::addKnownPerson(KnownPerson kPerson) {
 }
 
 /** 
- * Add an unknown person to the database
+ * @brief Add an unknown person to the database
  * @param ukPerson new unknown person
  */
 void Database::addUnknownPerson(UnknownPerson ukPerson) {
@@ -40,7 +40,7 @@ void Database::addUnknownPerson(UnknownPerson ukPerson) {
 }
 
 /** 
- * Get a known person from the database
+ * @brief Get a known person from the database
  * @param b known person index
  * @return known person
  */
@@ -49,7 +49,7 @@ KnownPerson Database::operator[](int b) {
 }
 
 /** 
- * Get number of known people
+ * @brief Get number of known people
  * @return number of known people
  */
 int Database::knownSize() {
