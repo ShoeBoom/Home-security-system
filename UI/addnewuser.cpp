@@ -1,6 +1,6 @@
 /**
 @author: Group53
-@brief: This class provides the UI fuctionality to add a new user to the system.
+@brief: This class provides the UI fuctionality to add a new user to the system
 **/
 
 #include "addnewuser.h"
