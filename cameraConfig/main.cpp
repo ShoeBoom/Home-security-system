@@ -8,7 +8,11 @@ Date: 2020-11-11
 #include"camera.h"
 
 using namespace std;
-
+/** 
+@brief: Runs the hardware camera on the raspberry pi will not work virtually.
+@param: None
+@return: None
+**/
 int main()
 {
     //Instatiating a camera object
