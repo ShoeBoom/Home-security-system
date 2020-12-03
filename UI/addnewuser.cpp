@@ -1,3 +1,8 @@
+/**
+@author: Group53
+@brief: This class provides the UI fuctionality to add a new user to the system.
+*//
+
 #include "addnewuser.h"
 #include "ui_addnewuser.h"
 #include "../facial_rec/camera/Camera.h"
