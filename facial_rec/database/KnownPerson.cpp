@@ -1,6 +1,6 @@
 /** 
  * Known person
- * Stores information about the known person (name, phone number, images).
+ * @brief Stores information about the known person (name, phone number, images).
  * @author group53
  */
 #include <opencv2/core.hpp>
@@ -10,7 +10,7 @@
 using namespace std;
 
 /** 
- * Constructor that creates a known person object
+ * @brief Constructor that creates a known person object
  * @param first_name first name
  * @param last_name last name
  * @param phone_number phone number
@@ -23,13 +23,13 @@ KnownPerson::KnownPerson(const string &first_name,
 	: firstName(first_name), lastName(last_name), phoneNumber(phone_number), images(images) {}
 
 /** 
- * Destructor
+ * @brief Destructor
  */
 KnownPerson::~KnownPerson() {
 }
 
 /** 
- * Set person's first name
+ * @brief Set person's first name
  * @param fName
  */
 void KnownPerson::setFirstName(string fName) {
@@ -37,7 +37,7 @@ void KnownPerson::setFirstName(string fName) {
 }
 
 /** 
- * Set person's last name
+ * @brief Set person's last name
  * @param lName
  */
 void KnownPerson::setLastName(string lName) {
@@ -45,7 +45,7 @@ void KnownPerson::setLastName(string lName) {
 }
 
 /** 
- * Set person's phone number
+ * @brief Set person's phone number
  * @param pNum
  */
 void KnownPerson::setPhoneNumber(string pNum) {
@@ -53,7 +53,7 @@ void KnownPerson::setPhoneNumber(string pNum) {
 }
 
 /** 
- * Set person's images
+ * @brief Set person's images
  * @param imgs
  */
 void KnownPerson::setImage(vector<cv::Mat> imgs) {
@@ -61,7 +61,7 @@ void KnownPerson::setImage(vector<cv::Mat> imgs) {
 }
 
 /** 
- * Get person's first name
+ * @brief Get person's first name
  * @return first name
  */
 string KnownPerson::getFirstName() {
@@ -69,7 +69,7 @@ string KnownPerson::getFirstName() {
 }
 
 /** 
- * Get person's last name
+ * @brief Get person's last name
  * @return last name
  */
 string KnownPerson::getLastName() {
@@ -77,7 +77,7 @@ string KnownPerson::getLastName() {
 }
 
 /** 
- * Get person's phone number
+ * @brief Get person's phone number
  * @return phone number
  */
 string KnownPerson::getPhoneNumber() {
@@ -85,7 +85,7 @@ string KnownPerson::getPhoneNumber() {
 }
 
 /** 
- * Get person's images
+ * @brief Get person's images
  * @return images
  */
 vector<cv::Mat> KnownPerson::getImage() {

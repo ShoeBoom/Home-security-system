@@ -1,4 +1,7 @@
-
+/**
+@brief: Header for SaveScreenshot.cpp
+@author: Group53
+**/
 #ifndef CS3307_SAVESCREENSHOT_H
 #define CS3307_SAVESCREENSHOT_H
 
