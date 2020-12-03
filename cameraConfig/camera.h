@@ -1,7 +1,8 @@
 /**
 CS 3307 Security Project
 Date: 2020-11-11
-Description: camera.h file that provides a prototype to the camera class
+@author: Group53
+@brief: camera.h file that provides a prototype to the camera class
 **/
 
 #ifndef CAMERA_H
