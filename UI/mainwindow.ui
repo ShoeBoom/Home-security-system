@@ -44,7 +44,7 @@
       <item alignment="Qt::AlignHCenter|Qt::AlignTop">
        <widget class="QPushButton" name="pushButton">
         <property name="text">
-         <string>View Recordings</string>
+         <string>View Screenshots</string>
         </property>
        </widget>
       </item>
