@@ -9,11 +9,11 @@ Message::Message() {
 void Message::run(Result r) {
 	time(&timer);
 	if (difftime(timer, lasttimer) > 30 && r.personID == -2) {
-		auto account_sid = "***REMOVED***";
-		auto auth_token = "***REMOVED***";
-		auto message_body = "Hmm...Looks like someone I don't recognize is at your door";
-		auto from_number = "***REMOVED***";
-		auto picture_url = "";
+		auto account_sid = "account_sid";
+        auto auth_token = "auth_token";
+        auto message_body = "Hmm...Looks like someone I don't recognize is at your door";
+        auto from_number = "from_number";
+        auto picture_url = "";
 		bool verbose = false;
 
 		auto opterr = 0;

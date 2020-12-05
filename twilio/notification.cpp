@@ -15,11 +15,11 @@ using namespace std;
 @return: none
 **/
 notification::notification() {
-    string account_sid = "***REMOVED***";
-    string auth_token = "***REMOVED***";
+    string account_sid = "account_sid";
+    string auth_token = "auth_token";
     string message_body = "Hmm...Looks like someone I don't recognize is at your door";
-    string from_number = "***REMOVED***";
-    string to_number = "***REMOVED***";
+    string from_number = "from_number";
+    string to_number = "to_number";
     string picture_url = "";
     bool verbose = false;
 
